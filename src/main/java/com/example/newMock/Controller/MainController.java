@@ -50,7 +50,7 @@ public class MainController {
             responseDTO.setMaxLimit(maxLimit.toString());
             responseDTO.setRqUID(requestDTo.getRqUID());
             responseDTO.setClientId(requestDTo.getClientId());
-            responseDTO.setAccount(responseDTO.getAccount());
+            responseDTO.setAccount(requestDTo.getAccount());
             responseDTO.setBalance(String.valueOf(balance));
 
             log.error("*** Запрос ***" + mapper.writerWithDefaultPrettyPrinter().writeValueAsString(responseDTO));
