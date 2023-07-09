@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 @RestController
@@ -51,7 +52,7 @@ public class MainController {
             responseDTO.setRqUID(requestDTo.getRqUID());
             responseDTO.setClientId(requestDTo.getClientId());
             responseDTO.setAccount(requestDTo.getAccount());
-            responseDTO.setBalance(String.valueOf(balance));
+            responseDTO.setBalance(new DecimalFormat("#0.00").format(balance).replace(",", "."));
 
             log.error("*** Запрос ***" + mapper.writerWithDefaultPrettyPrinter().writeValueAsString(responseDTO));
             log.error("*** Ответ ***" + mapper.writerWithDefaultPrettyPrinter().writeValueAsString(requestDTo));
